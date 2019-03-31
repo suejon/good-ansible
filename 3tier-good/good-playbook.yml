@@ -29,8 +29,9 @@
   hosts: frontends
   gather_facts: false # remove later! speeds up testing
   become: true
-  include_role:
-    name: haproxy
+  tasks:
+    - include_role:
+      name: haproxy
 
 - name: install and deploy tomcat
   hosts: apps
