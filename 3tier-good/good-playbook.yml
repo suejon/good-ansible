@@ -11,7 +11,7 @@
 #   Hard coding / poor use of variables
 #   Roles - what are roles?
 #   Bare variables
-#   No use of handlers
+##   No use of handlers
 
 - name: configure repositories on all hosts
   hosts: all
@@ -42,7 +42,7 @@
         name: webservers
 
 - name: copy index file to app1 webserver
-  hosts: app1
+  hosts: app1*
   gather_facts: false
   become: true
 
@@ -53,7 +53,7 @@
       dest: /usr/share/tomcat/webapps/ansible/index.html
 
 - name: copy index file to app2 webserver
-  hosts: app2
+  hosts: app2*
   gather_facts: false
   become: true
 
