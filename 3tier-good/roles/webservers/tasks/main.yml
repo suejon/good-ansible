@@ -17,6 +17,11 @@
     - ROOT
     - ansible
 
+- name: start tomcat
+  service:
+    name: tomcat
+    state: started
+
 - name: copy static index.html to tomcat webapps/ansible/index.html
   template:
     src: ../templates/index.html.j2
@@ -27,8 +32,4 @@
   template:
     src: "../templates/index.html.{{ansible_hostname}}"
     dest: /usr/share/tomcat/webapps/ansible/index.html
-
-- name: start tomcat
-  service:
-    name: tomcat
-    state: started
+    mode: 0644
