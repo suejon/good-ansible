@@ -41,28 +41,6 @@
     - include_role:
         name: webservers
 
-- name: copy index file to app1 webserver
-  hosts: app1*
-  gather_facts: false
-  become: true
-
-  tasks:
-  - name: copy static index.html to tomcat webapps/ansible/index.html
-    template:
-      src: index.html.app1
-      dest: /usr/share/tomcat/webapps/ansible/index.html
-
-- name: copy index file to app2 webserver
-  hosts: app2*
-  gather_facts: false
-  become: true
-
-  tasks:
-  - name: copy static index.html to tomcat webapps/ansible/index.html
-    template:
-      src: index.html.app2
-      dest: /usr/share/tomcat/webapps/ansible/index.html
-
 - name: install and deploy postgres
   gather_facts: false
   become: true
