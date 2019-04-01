@@ -11,7 +11,7 @@
 #   Hard coding / poor use of variables
 #   Roles - what are roles?
 #   Bare variables
-##   No use of handlers
+#   No use of handlers
 
 - name: configure repositories on all hosts
   hosts: all
